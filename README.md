@@ -141,6 +141,7 @@ All API routes are under the following prefix:
 - **Method:** PUT  
 - **URL:** /api/v1/users/:username
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Request Body (JSON):**
 
@@ -179,6 +180,7 @@ All API routes are under the following prefix:
 - **Method:** DELETE  
 - **URL:** /api/v1/users/:username
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Successful Response (JSON):**
 
@@ -204,6 +206,7 @@ All API routes are under the following prefix:
 - **Method:** PUT  
 - **URL:** /api/v1/users/change-password/:username
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Request Body (JSON):**
 
@@ -240,6 +243,7 @@ All API routes are under the following prefix:
 - **Method:** GET  
 - **URL:** /api/v1/users
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Successful Response (JSON):**
 
@@ -312,6 +316,7 @@ All API routes are under the following prefix:
 - **Method:** GET  
 - **URL:** /api/v1/users/:username
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Successful Response (JSON):**
 
@@ -340,6 +345,7 @@ All API routes are under the following prefix:
 - **Method:** POST  
 - **URL:** /api/v1/products
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Request Body (JSON):**
 
@@ -375,6 +381,7 @@ All API routes are under the following prefix:
 - **Method:** POST  
 - **URL:** /api/v1/products/:id
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Request Body (JSON):**
 
@@ -504,6 +511,7 @@ All API routes are under the following prefix:
 - **Method:** POST  
 - **URL:** /api/v1/orders
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Request Body (JSON):**
 
@@ -558,6 +566,7 @@ All API routes are under the following prefix:
 - **Method:** POST  
 - **URL:** /api/v1/orders/:id
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Request Body (JSON):**
 
@@ -612,6 +621,7 @@ All API routes are under the following prefix:
 - **Method:** POST  
 - **URL:** /api/v1/orders/:id
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Request Body (JSON):**
 
@@ -674,6 +684,7 @@ All API routes are under the following prefix:
 - **Method:** GET  
 - **URL:** /api/v1/orders
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Successful Response (JSON):**
 
@@ -830,6 +841,7 @@ All API routes are under the following prefix:
 - **Method:** GET  
 - **URL:** /api/v1/orders/:id
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Successful Response (JSON):**
 
@@ -866,6 +878,7 @@ All API routes are under the following prefix:
 - **Method:** GET  
 - **URL:** /api/v1/orders/search/:userId
 - **Protected:** Yes
+- **Headers:**  Authorization: Bearer <token>
 
 **Successful Response (JSON):**
 
