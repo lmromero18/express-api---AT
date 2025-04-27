@@ -1,7 +1,24 @@
 
-# API
+# EXPRESS API
 
-RESTful API built with **Express.js**, **Node.js**, and **MongoDB**. It features JWT-based authentication, user management, product catalog, and order processing functionalities.
+RESTful API built with **Express.js**, **Node.js**, and **MongoDB**.
+It features **JWT-based authentication**, **user management**, **product catalog**, and order processing functionalities.
+
+The project follows a **layered architecture** for better scalability and maintainability:
+
+**Controller Layer:** Handles HTTP requests and responses. It delegates business logic to services.
+
+**Service Layer:** Encapsulates business rules (e.g., validation, inventory management, password hashing).
+
+**Repository Layer:** Provides reusable CRUD operations interacting with the database using Mongoose models.
+
+**Middleware Layer:** Handles tasks like JWT authentication validation, error handling, and route protection.
+
+**Helper Utilities:** Provide cross-cutting functionalities (such as token generation using RSA keys).
+
+The authentication mechanism uses JWT tokens signed with asymmetric RSA keys (RS256) for enhanced security.
+
+This structure separates concerns cleanly, making the API easier to test, extend, and maintain.
 
 ## Technologies Used
 
