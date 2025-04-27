@@ -1,16 +1,17 @@
 import express from "express";
-import asyncHandler from "../handlers/async.handler";
+import routeHandler from "../middleware/route.middleware";
 import { productController } from "../controllers/product.controller";
+import { jwtMiddleware } from "../middleware/jwt.middleware";
 
 const router = express.Router();
 
 router.route("/")
-  .get(asyncHandler(productController.getPaginated))
-  .post(asyncHandler(productController.create));
+  .get(routeHandler(productController.get))
+  .post(jwtMiddleware, routeHandler(productController.create));
 
 router.route("/:id")
-  .get(asyncHandler(productController.getById))
-  .put(asyncHandler(productController.update))
-  .delete(asyncHandler(productController.delete));
+  .get(routeHandler(productController.getById))
+  .put(jwtMiddleware, routeHandler(productController.update))
+  .delete(jwtMiddleware, routeHandler(productController.delete));
 
 export default router;
