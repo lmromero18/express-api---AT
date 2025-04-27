@@ -1,5 +1,7 @@
 
-# Express API - Backend Project
+# API
+
+RESTful API built with **Express.js**, **Node.js**, and **MongoDB**. It features JWT-based authentication, user management, product catalog, and order processing functionalities.
 
 ## Technologies Used
 
@@ -66,16 +68,15 @@ MONGO_DB_NAME=expressAPI
 
 # API Sections
 
-## Authentication
+### Auth
 
-### Login
+#### Login
 
-**Endpoint:**  
-```http
-POST /api/v1/auth/login
-```
+- **Method:** POST  
+- **URL:** /api/v1/auth/login
+- **Protected:** No
 
-**Expected Body (JSON):**
+**Request Body (JSON):**
 
 ```json
 {
@@ -92,5 +93,12 @@ POST /api/v1/auth/login
   "message": "Login successful",
   "token": "<JWT TOKEN>"
 }
+```
+
+### Users
+
+**Endpoint:**  
+```http
+POST /api/v1/users
 ```
 
