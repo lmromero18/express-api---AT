@@ -332,3 +332,167 @@ All API routes are under the following prefix:
     }
 }
 ```
+
+### Products
+
+#### Create Products
+
+- **Method:** POST  
+- **URL:** /api/v1/products
+- **Protected:** Yes
+
+**Request Body (JSON):**
+
+```json
+{
+  "name": "Example Product",
+  "price": 49.99,
+  "description": "This is an example description for the product.",
+  "quantity": 100
+}
+```
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "name": "Example Product 3",
+        "price": 49.99,
+        "description": "This is an example description for the product.",
+        "quantity": 100,
+        "_id": "680e8074d46d975d83d17c5f",
+        "createdAt": "2025-04-27T19:07:32.858Z",
+        "updatedAt": "2025-04-27T19:07:32.858Z",
+        "__v": 0
+    }
+}
+```
+
+#### Update Products
+
+- **Method:** POST  
+- **URL:** /api/v1/products/:id
+- **Protected:** Yes
+
+**Request Body (JSON):**
+
+```json
+{
+  "name": "Example Product",
+  "price": 49.99,
+  "description": "This is an example description for the product.",
+  "quantity": 900
+}
+```
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "_id": "680e7f8040129689aaf78c43",
+        "name": "Example Product",
+        "price": 49.99,
+        "description": "This is an example description for the product.",
+        "quantity": 900,
+        "createdAt": "2025-04-27T19:03:28.564Z",
+        "updatedAt": "2025-04-27T20:36:43.877Z",
+        "__v": 0
+    }
+}
+```
+
+#### Delete Product
+
+- **Method:** DELETE  
+- **URL:** /api/v1/products/:id
+- **Protected:** No
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "_id": "680e8074d46d975d83d17c5f",
+        "name": "Example Product 3",
+        "price": 49.99,
+        "description": "This is an example description for the product.",
+        "quantity": 100,
+        "createdAt": "2025-04-27T19:07:32.858Z",
+        "updatedAt": "2025-04-27T19:07:32.858Z",
+        "__v": 0
+    }
+}
+```
+
+#### Get Products
+
+- **Method:** GET  
+- **URL:** /api/v1/products
+- **Protected:** No
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "items": [
+            {
+                "_id": "680e7f8040129689aaf78c43",
+                "name": "Example Product",
+                "price": 49.99,
+                "description": "This is an example description for the product.",
+                "quantity": 99,
+                "createdAt": "2025-04-27T19:03:28.564Z",
+                "updatedAt": "2025-04-27T19:22:49.312Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e8051d46d975d83d17c5c",
+                "name": "Example Product 2",
+                "price": 49.99,
+                "description": "This is an example description for the product.",
+                "quantity": 147,
+                "createdAt": "2025-04-27T19:06:57.523Z",
+                "updatedAt": "2025-04-27T19:22:49.315Z",
+                "__v": 0
+            }
+        ],
+        "pagination": {
+            "total": 2,
+            "page": 1,
+            "limit": 20,
+            "totalPages": 1
+        }
+    }
+}
+```
+
+#### Get Products by ID
+
+- **Method:** GET  
+- **URL:** /api/v1/products/:id
+- **Protected:** No
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "_id": "680e8051d46d975d83d17c5c",
+        "name": "Example Product 2",
+        "price": 49.99,
+        "description": "This is an example description for the product.",
+        "quantity": 147,
+        "createdAt": "2025-04-27T19:06:57.523Z",
+        "updatedAt": "2025-04-27T19:33:26.672Z",
+        "__v": 0
+    }
+}
+```
