@@ -865,7 +865,7 @@ All API routes are under the following prefix:
 
 - **Method:** GET  
 - **URL:** /api/v1/orders/search/:userId
-- **Protected:** yes
+- **Protected:** Yes
 
 **Successful Response (JSON):**
 
@@ -1016,3 +1016,9 @@ All API routes are under the following prefix:
     }
 }
 ```
+
+### Author
+
+#### Luis Romero
+
+- **GitHub:** https://github.com/lmromero18
