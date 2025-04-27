@@ -496,3 +496,523 @@ All API routes are under the following prefix:
     }
 }
 ```
+
+### Orders
+
+#### Create Orders
+
+- **Method:** POST  
+- **URL:** /api/v1/orders
+- **Protected:** Yes
+
+**Request Body (JSON):**
+
+```json
+{
+  "products": [
+    {
+      "productId": "680e7f8040129689aaf78c43",
+      "quantity": 1
+    },
+    {
+      "productId": "680e8051d46d975d83d17c5c",
+      "quantity": 3
+    }
+  ]
+}
+
+```
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "user": "680e5add6318542217e4aefa",
+        "products": [
+            {
+                "productId": "680e7f8040129689aaf78c43",
+                "quantity": 1,
+                "_id": "680e96b02a98645c90530487"
+            },
+            {
+                "productId": "680e8051d46d975d83d17c5c",
+                "quantity": 3,
+                "_id": "680e96b02a98645c90530488"
+            }
+        ],
+        "totalPrice": 199.96,
+        "totalQuantity": 4,
+        "status": "PENDING",
+        "_id": "680e96b02a98645c90530486",
+        "createdAt": "2025-04-27T20:42:24.556Z",
+        "updatedAt": "2025-04-27T20:42:24.556Z",
+        "__v": 0
+    }
+}
+```
+
+#### Update Order
+
+- **Method:** POST  
+- **URL:** /api/v1/orders/:id
+- **Protected:** Yes
+
+**Request Body (JSON):**
+
+```json
+{
+  "products": [
+    {
+      "productId": "680e7f8040129689aaf78c43", 
+      "quantity": 2
+    },
+    {
+      "productId": "680e8051d46d975d83d17c5c", 
+      "quantity": 1
+    }
+  ]
+}
+
+```
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "_id": "680e8263327d99759a6580d1",
+        "user": "680e5add6318542217e4aefa",
+        "products": [
+            {
+                "productId": "680e7f8040129689aaf78c43",
+                "quantity": 2,
+                "_id": "680e87f50c50adbb7ec0bb1c"
+            },
+            {
+                "productId": "680e8051d46d975d83d17c5c",
+                "quantity": 1,
+                "_id": "680e87f50c50adbb7ec0bb1d"
+            }
+        ],
+        "totalPrice": 149.97,
+        "totalQuantity": 3,
+        "status": "PENDING",
+        "createdAt": "2025-04-27T19:15:47.046Z",
+        "updatedAt": "2025-04-27T19:39:33.614Z",
+        "__v": 0
+    }
+}
+```
+
+#### Update Order Status
+
+- **Method:** POST  
+- **URL:** /api/v1/orders/:id
+- **Protected:** Yes
+
+**Request Body (JSON):**
+
+```json
+{
+  "status": "CONFIRMED"
+}
+```
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "_id": "680e8263327d99759a6580d1",
+        "user": "680e5add6318542217e4aefa",
+        "products": [
+            {
+                "productId": {
+                    "_id": "680e7f8040129689aaf78c43",
+                    "name": "Example Product",
+                    "price": 49.99,
+                    "description": "This is an example description for the product.",
+                    "quantity": 96,
+                    "createdAt": "2025-04-27T19:03:28.564Z",
+                    "updatedAt": "2025-04-27T19:33:26.670Z",
+                    "__v": 0
+                },
+                "quantity": 2,
+                "_id": "680e87f50c50adbb7ec0bb1c"
+            },
+            {
+                "productId": {
+                    "_id": "680e8051d46d975d83d17c5c",
+                    "name": "Example Product 2",
+                    "price": 49.99,
+                    "description": "This is an example description for the product.",
+                    "quantity": 147,
+                    "createdAt": "2025-04-27T19:06:57.523Z",
+                    "updatedAt": "2025-04-27T19:33:26.672Z",
+                    "__v": 0
+                },
+                "quantity": 1,
+                "_id": "680e87f50c50adbb7ec0bb1d"
+            }
+        ],
+        "totalPrice": 149.97,
+        "totalQuantity": 3,
+        "status": "CONFIRMED",
+        "createdAt": "2025-04-27T19:15:47.046Z",
+        "updatedAt": "2025-04-27T19:46:20.300Z",
+        "__v": 0
+    }
+}
+```
+
+#### Get Orders
+
+- **Method:** GET  
+- **URL:** /api/v1/orders
+- **Protected:** Yes
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "items": [
+            {
+                "_id": "680e8263327d99759a6580d1",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 2,
+                        "_id": "680e87f50c50adbb7ec0bb1c"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 1,
+                        "_id": "680e87f50c50adbb7ec0bb1d"
+                    }
+                ],
+                "totalPrice": 149.97,
+                "totalQuantity": 3,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:15:47.046Z",
+                "updatedAt": "2025-04-27T19:39:33.614Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e828e327d99759a6580d5",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e828e327d99759a6580d6"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e828e327d99759a6580d7"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:16:30.491Z",
+                "updatedAt": "2025-04-27T19:16:30.491Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e840969a3cb322fad95c2",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e840969a3cb322fad95c3"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e840969a3cb322fad95c4"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:22:49.306Z",
+                "updatedAt": "2025-04-27T19:22:49.306Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e85d55709a17ce1f9a325",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e85d55709a17ce1f9a326"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e85d55709a17ce1f9a327"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:30:29.529Z",
+                "updatedAt": "2025-04-27T19:30:29.529Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e8643aed53ca32a2caeb9",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e8643aed53ca32a2caeba"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e8643aed53ca32a2caebb"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:32:19.986Z",
+                "updatedAt": "2025-04-27T19:32:19.986Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e8686aed53ca32a2caece",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e8686aed53ca32a2caecf"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e8686aed53ca32a2caed0"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:33:26.668Z",
+                "updatedAt": "2025-04-27T19:33:26.668Z",
+                "__v": 0
+            }
+        ],
+        "pagination": {
+            "total": 6,
+            "page": 1,
+            "limit": 20,
+            "totalPages": 1
+        }
+    }
+}
+```
+
+#### Get Orders by ID
+
+- **Method:** GET  
+- **URL:** /api/v1/orders/:id
+- **Protected:** Yes
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "_id": "680e8263327d99759a6580d1",
+        "user": "680e5add6318542217e4aefa",
+        "products": [
+            {
+                "productId": "680e7f8040129689aaf78c43",
+                "quantity": 2,
+                "_id": "680e87f50c50adbb7ec0bb1c"
+            },
+            {
+                "productId": "680e8051d46d975d83d17c5c",
+                "quantity": 1,
+                "_id": "680e87f50c50adbb7ec0bb1d"
+            }
+        ],
+        "totalPrice": 149.97,
+        "totalQuantity": 3,
+        "status": "PENDING",
+        "createdAt": "2025-04-27T19:15:47.046Z",
+        "updatedAt": "2025-04-27T19:39:33.614Z",
+        "__v": 0
+    }
+}
+```
+
+#### Get Orders by User ID
+
+- **Method:** GET  
+- **URL:** /api/v1/orders/search/:userId
+- **Protected:** yes
+
+**Successful Response (JSON):**
+
+```json
+{
+    "success": true,
+    "data": {
+        "items": [
+            {
+                "_id": "680e8263327d99759a6580d1",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 2,
+                        "_id": "680e87f50c50adbb7ec0bb1c"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 1,
+                        "_id": "680e87f50c50adbb7ec0bb1d"
+                    }
+                ],
+                "totalPrice": 149.97,
+                "totalQuantity": 3,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:15:47.046Z",
+                "updatedAt": "2025-04-27T19:39:33.614Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e828e327d99759a6580d5",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e828e327d99759a6580d6"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e828e327d99759a6580d7"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:16:30.491Z",
+                "updatedAt": "2025-04-27T19:16:30.491Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e840969a3cb322fad95c2",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e840969a3cb322fad95c3"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e840969a3cb322fad95c4"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:22:49.306Z",
+                "updatedAt": "2025-04-27T19:22:49.306Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e85d55709a17ce1f9a325",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e85d55709a17ce1f9a326"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e85d55709a17ce1f9a327"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:30:29.529Z",
+                "updatedAt": "2025-04-27T19:30:29.529Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e8643aed53ca32a2caeb9",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e8643aed53ca32a2caeba"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e8643aed53ca32a2caebb"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:32:19.986Z",
+                "updatedAt": "2025-04-27T19:32:19.986Z",
+                "__v": 0
+            },
+            {
+                "_id": "680e8686aed53ca32a2caece",
+                "user": "680e5add6318542217e4aefa",
+                "products": [
+                    {
+                        "productId": "680e7f8040129689aaf78c43",
+                        "quantity": 1,
+                        "_id": "680e8686aed53ca32a2caecf"
+                    },
+                    {
+                        "productId": "680e8051d46d975d83d17c5c",
+                        "quantity": 3,
+                        "_id": "680e8686aed53ca32a2caed0"
+                    }
+                ],
+                "totalPrice": 199.96,
+                "totalQuantity": 4,
+                "status": "PENDING",
+                "createdAt": "2025-04-27T19:33:26.668Z",
+                "updatedAt": "2025-04-27T19:33:26.668Z",
+                "__v": 0
+            }
+        ],
+        "pagination": {
+            "total": 6,
+            "page": 1,
+            "limit": 20,
+            "totalPages": 1
+        }
+    }
+}
+```
